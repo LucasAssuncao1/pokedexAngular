@@ -1,27 +1,31 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { PokeApiService } from '../../service/poke-api.service';
-import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'poke-list',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './poke-list.component.html',
   styleUrl: './poke-list.component.scss'
 })
-export class PokeListComponent implements OnInit{
+export class PokeListComponent implements OnInit {
 
-  // private pokeApiService = inject(PokeApiService);
+  // Injetando a depencencia do service
+  private pokeApiService = inject(PokeApiService);
 
 
-  constructor(private pokeApiService: PokeApiService){
+  public getAllPokemons: any;
+
+  constructor() {
   }
 
   ngOnInit(): void {
     this.pokeApiService.apiListAllPokemons.subscribe(
-      res => console.log(res)
-      
+      res => {
+        this.getAllPokemons = res.results;
+      }
+
     );
   }
-
 }

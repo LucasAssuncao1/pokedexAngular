@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 
 // Observable
 import { map, Observable, tap } from 'rxjs';
@@ -12,9 +12,9 @@ export class PokeApiService {
   private url: string = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=100';
 
   // injetando a dependência HttpClient
-  // private http = inject(HttpClient);
+  private http = inject(HttpClient);
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
   // Criar um metodo para pegar os pokemons
   get apiListAllPokemons(): Observable<any> {

@@ -4,14 +4,15 @@
 :host{
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  padding: rem-calc(20);
 
-  // padding: rem-calc(20);
   .pokemon{
     position: relative;
     display: flex;
     width: calc(49% - 2.5rem);
     height: rem-calc(157 - 40);
-    margin-top: rem-calc(20);
+    margin-bottom: rem-calc(10);
 
     background: var(--branco);
     border-radius: rem-calc(10);
@@ -22,16 +23,20 @@
         font-size: rem-calc(22);
         font-weight: 700;
         font-style: italic;
+        text-transform: capitalize;
+
         margin-bottom: rem-calc(10);
       }
       ul{
         display: flex;
         flex-direction: column;
+        
 
         li{
           background: var(--cinza);
           font-size: rem-calc(10);
           width: rem-calc(60);
+          text-transform: capitalize;
 
           display: flex;
           justify-content: center;
@@ -58,7 +63,7 @@
       background: url('../../../../public/bg/background-list-pokemons.svg.svg') no-repeat;
 
       img{
-        width: rem-calc(80);
+        width: rem-calc(75);
 
       }
 
