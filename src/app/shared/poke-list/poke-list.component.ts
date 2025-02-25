@@ -1,11 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { PokeApiService } from '../../service/poke-api.service';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'poke-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './poke-list.component.html',
   styleUrl: './poke-list.component.scss'
 })
