@@ -3,7 +3,7 @@ import { DetailsComponent } from './pages/details/details.component';
 
 export const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent)
   },
   {
@@ -12,6 +12,6 @@ export const routes: Routes = [
   },
   {
     path:'**',
-    redirectTo: 'home' // Redireciona para Home caso a rota não seja encontrada
+    redirectTo: '' // Redireciona para Home caso a rota não seja encontrada
   }
 ];
