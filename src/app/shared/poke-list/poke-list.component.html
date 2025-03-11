@@ -9,7 +9,7 @@
       *ngIf="pokemon.status"
     >
       <section class="pokemon__status">
-        <h2>{{ pokemon.name }} {{ pokemon.status.id }}</h2>
+        <h2>{{ pokemon.name }}</h2>
 
         <ul>
           <li *ngFor="let value of pokemon.status.types">
@@ -30,7 +30,7 @@
 
 <img
   *ngIf="apiError"
-  src="/public/error.png"
+  src="error.png"
   alt="Deu erro na exibição do pokemon"
   width="100%"
 />

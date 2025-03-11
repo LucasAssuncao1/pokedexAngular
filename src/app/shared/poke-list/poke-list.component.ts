@@ -32,7 +32,6 @@ export class PokeListComponent implements OnInit {
       error => {
         this.apiError = true;
       }
-
     );
   }
 
