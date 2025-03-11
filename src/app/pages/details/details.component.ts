@@ -1,9 +1,12 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { PokeApiService } from '../../service/poke-api.service';
 import { forkJoin } from 'rxjs';
 import { PokeHeaderComponent } from "../../shared/poke-header/poke-header.component";
 import { CommonModule } from '@angular/common';
+
+// Services
+import { PokeApiService } from '../../service/poke-api.service';
+
 
 @Component({
   selector: 'app-details',
@@ -19,8 +22,8 @@ export class DetailsComponent implements OnInit {
   //  private pokeApiService = Inject(PokeApiService);
 
   // urls advindas da API
-  private urlPokemon = 'https://pokeapi.co/api/v2/pokemon';
-  private urlName = 'https://pokeapi.co/api/v2/pokemon-species';
+  private urlPokemon = 'https://pokeapi.co/api/v2/pokemon/';
+  private urlName = 'https://pokeapi.co/api/v2/pokemon-species/';
 
   public pokemon: any;
   public isLoading: boolean = false;
@@ -33,18 +36,18 @@ export class DetailsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getPokemon;
+    this.getPokemon();
   }
 
-    get getPokemon() {
+    public getPokemon() {
       const id = this.activatedRoute.snapshot.paramMap.get('id');
       if (!id) {
         console.error('ID não encontrado na rota');
         return;
       }
 
-      const pokemon = this.pokeApiService.apiGetPokemon(this.urlPokemon + '/id');
-      const name = this.pokeApiService.apiGetPokemon(this.urlName + '/id');
+      const pokemon = this.pokeApiService.apiGetPokemon(this.urlPokemon + id);
+      const name = this.pokeApiService.apiGetPokemon(this.urlName + id);
 
       forkJoin([pokemon, name]).subscribe(
         res => {
